@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn CodePrep</title>
+  <link rel="icon" href="favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="favlearn.png" alt="CodePrep Logo" class="logo">
+      <span class="brand-name">CodePrep Academy</span>
+    </div>
+    <div class="nav-icon" onclick="togglePopup()">&#9776;</div>
+  </nav>
+
+  <!-- Popup Navigation Menu -->
+  <div class="popup" id="popup">
+    <span class="close-btn" onclick="togglePopup()">×</span>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Why Us</a></li>
+      <li><a href="#">FAQs</a></li>
+      <li><a href="#">Reviews</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h1 class="type">Join CodePrep Academy today!</h1>
+    <div class="buttons">
+      <a href="course.html" class="btn explore">Explore Courses</a>
+      <a href="login.html" class="btn login">Login</a>
+    </div>
+  </div>
+
+  <!-- WhatsApp Chat Button -->
+  <div class="whatsapp-container">
+    <a href="https://wa.me/7488394698" target="_blank" class="whatsapp-btn">
+      <img src="logowhatsapp.png" alt="WhatsApp Logo" class="whatsapp-logo">
+      <span class="whatsapp-text">Chat with us</span>
+    </a>
+  </div>
+
+</body>
+</html>
