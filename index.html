@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodePrep Academy</title>
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="images/favlearn.png" alt="CodePrep Logo" class="logo">
+      <span class="brand-name">CodePrep Academy</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="free resources.html">Free Resources</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Why Us</a></li>
+      <li><a href="#">FAQs</a></li>
+      <li><a href="#">Reviews</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <div class="nav-icon" onclick="togglePopup()">&#9776;</div>
+  </nav>
+
+  <!-- Popup Navigation Menu for Small Screens -->
+  <div class="popup" id="popup">
+    <span class="close-btn" onclick="togglePopup()">&times;</span>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="free resources.html">Free Resources</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Why Us</a></li>
+      <li><a href="#">FAQs</a></li>
+      <li><a href="#">Reviews</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h1 class="type">Join CodePrep Academy today!</h1>
+    <div class="buttons">
+      <a href="course.html" class="btn explore">Explore Courses</a>
+      <a href="registration.html" class="btn login">Register Now</a>
+    </div>
+    <br><br>
+    <p class="team-text">Our Team</p>
+    <h2 class="leaders-heading">The Leaders Behind CodePrep</h2>
+    <div class="leaders-container">
+      <div class="leader-card">
+        <img src="images/founder.jpeg" alt="Founder">
+        <p class="leader-name">Avinash Jha</p>
+        <p class="leader-description">Founder & CTO, leading innovation at CodePrep.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/avinash04sep/"><img src="images/linkedin.png" alt="LinkedIn"></a>
+          <a href="#"><img src="images/github.png" alt="GitHub"></a>
+          <a href="#"><img src="images/x.png" alt="X"></a>
+        </div>
+      </div>
+      <div class="leader-card">
+        <img src="images/neha.png" alt="Co-founder">
+        <p class="leader-name">Neha K</p>
+        <p class="leader-description">Co-founder & COO - CodePrep Academy</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/neha-k-b5584029b/"><img src="images/linkedin.png" alt="LinkedIn"></a>
+          <a href="#"><img src="images/github.png" alt="GitHub"></a>
+          <a href="#"><img src="images/x.png" alt="X"></a>
+        </div>
+      </div>
+      <div class="leader-card">
+        <img src="images/ashish.png" alt="Leader 2">
+        <p class="leader-name">Ashish Shivhare</p>
+        <p class="leader-description">Founding SDE 1 & Instructor - DSA </p>
+        <div class="social-links">
+          <a href="https://in.linkedin.com/in/ashish-shivhare"><img src="images/linkedin.png" alt="LinkedIn"></a>
+          <a href="#"><img src="images/github.png" alt="GitHub"></a>
+          <a href="#"><img src="images/x.png" alt="X"></a>
+        </div>
+      </div>
+      <div class="leader-card">
+        <img src="images/shivansh.jpeg" alt="Leader 3">
+        <p class="leader-name">Shivansh Mehta</p>
+        <p class="leader-description">Instructor - MERN Stack</p>
+        <div class="social-links">
+          <a href="https://in.linkedin.com/in/shivanshmehtaa"><img src="images/linkedin.png" alt="LinkedIn"></a>
+          <a href="#"><img src="images/github.png" alt="GitHub"></a>
+          <a href="#"><img src="images/x.png" alt="X"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- WhatsApp Chat Button -->
+    <div class="whatsapp-container">
+      <a href="https://wa.me/7488394698" target="_blank" class="whatsapp-btn">
+        <img src="images/logowhatsapp.png" alt="WhatsApp Logo" class="whatsapp-logo">
+        <span class="whatsapp-text">Chat with us</span>
+      </a>
+    </div>
+
+  <script>
+    function togglePopup() {
+      const popup = document.getElementById("popup");
+      popup.classList.toggle("active");
+    }
+  </script>
+</body>
+</html>
