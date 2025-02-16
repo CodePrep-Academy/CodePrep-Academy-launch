@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Resources - CodePrep Academy</title>
+    <link rel="icon" href="favicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #333;
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            background: #1667da;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: fadeInUp 1s ease-in-out;
+        }
+        .container:hover{
+            background-color: #222;
+        }
+        h2 {
+            color: white;
+            margin-bottom: 10px;
+        }
+        p {
+            color: white;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: white;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.2s, background 0.3s;
+        }
+        .btn:hover {
+            background-color: white;
+            transform: scale(1.05);
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Free Curated DSA Sheet (450 Problems)</h2>
+        <p>Master Data Structures & Algorithms with our well-structured DSA sheet covering 450 problems, from basics to advanced topics.</p>
+        <a href="https://docs.google.com/spreadsheets/d/1xXnxg77Kkptsgl8EdAierUoQxEHIWOPjAndErJ1vSKI/edit?usp=sharing" class="btn" download>Download Sheet</a>
+    </div>
+    
+    <div class="container">
+        <h2>CodePrep Academy Online Compiler</h2>
+        <p>Write, compile, and store your codes online in any programming language using our powerful compiler.</p>
+        <a href="https://codeprep.in/playground" class="btn">Go to Playgrounds</a>
+    </div>
+</body>
+</html>

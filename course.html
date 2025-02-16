@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrial Training Programs</title>
+    <link rel="stylesheet" href="course.css">
+    <link rel="icon" href="favicon.png">
+</head>
+<body>
+    <div class="course-container">
+        <!-- Data Structures & Algorithms Program -->
+        <div class="course-token">
+            <h2>Industrial Training Program – Data Structures & Algorithms in C++ and Java</h2>
+            <p>This 6-month industrial training program provides in-depth knowledge of Data Structures and Algorithms (DSA) in C++ and Java, working with software engineers from CodePrep Academy.</p>
+            <button class="explore-btn" data-course="dsa">Explore Course</button>
+            <a href="registration.html">
+                <button class="register-btn">Register Now</button>
+            </a>
+        </div>
+
+        <!-- MERN Stack Program -->
+        <div class="course-token">
+            <h2>Industrial Training Project – MERN Stack Development</h2>
+            <p>This 6-month industrial training program helps you master MERN Stack Development, working with software engineers from CodePrep Academy.</p>
+            <button class="explore-btn" data-course="mern">Explore Course</button>
+            <a href="registration.html">
+                <button class="register-btn">Register Now</button>
+            </a>
+        </div>
+
+        <!-- Data Science Program -->
+        <div class="course-token">
+            <h2>Industrial Training Project – Data Science</h2>
+            <p>This 6-month industrial training program is designed to provide in-depth knowledge of Data Science, Machine Learning, and AI.</p>
+            <button class="explore-btn" data-course="data-science">Explore Course</button>
+            <a href="registration.html">
+                <button class="register-btn">Register Now</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- Popup Modal -->
+    <div id="courseModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById("courseModal");
+            const closeModal = document.querySelector(".close");
+            const modalBody = document.getElementById("modalBody");
+
+            const courseDetails = {
+                "dsa": `
+                    <h3>Program Overview:</h3>
+                    <p>This program focuses on real-world problem-solving, optimizing code efficiency, and preparing for technical interviews.</p>
+                    <h3>Course Outcomes:</h3>
+                    <ul>
+                        <li>✔ Strong understanding of DSA in C++ and Java.</li>
+                        <li>✔ Real-world problem-solving techniques.</li>
+                        <li>✔ Optimized, scalable solutions.</li>
+                        <li>✔ Live industry projects under expert guidance.</li>
+                        <li>✔ Mastery of OOP, memory management, and system design.</li>
+                    </ul>
+                `,
+                "mern": `
+                    <h3>Program Overview:</h3>
+                    <p>Learn full-stack web development, handling real-world projects, and building scalable applications using the MERN stack.</p>
+                    <h3>Course Outcomes:</h3>
+                    <ul>
+                        <li>✔ Hands-on experience in full-stack development.</li>
+                        <li>✔ Build dynamic and responsive web applications using React.js.</li>
+                        <li>✔ Develop RESTful APIs with Express.js and Node.js.</li>
+                        <li>✔ Work on real-world industry projects.</li>
+                        <li>✔ Learn authentication, security best practices, and cloud deployment.</li>
+                    </ul>
+                `,
+                "data-science": `
+                    <h3>Program Overview:</h3>
+                    <p>Gain hands-on experience in Data Science, Machine Learning, and AI with industry experts.</p>
+                    <h3>Course Outcomes:</h3>
+                    <ul>
+                        <li>✔ Master Python, SQL, and key data science libraries.</li>
+                        <li>✔ Build machine learning models for real-world business problems.</li>
+                        <li>✔ Work with Big Data technologies such as Hadoop, Spark.</li>
+                        <li>✔ Learn NLP, Computer Vision, and AI applications.</li>
+                        <li>✔ Hands-on experience with live industry projects.</li>
+                    </ul>
+                `
+            };
+
+            document.querySelectorAll(".explore-btn").forEach(button => {
+                button.addEventListener("click", function() {
+                    let courseKey = this.getAttribute("data-course");
+                    modalBody.innerHTML = courseDetails[courseKey];
+                    modal.style.display = "block";
+                });
+            });
+
+            closeModal.addEventListener("click", function() {
+                modal.style.display = "none";
+            });
+
+            window.addEventListener("click", function(event) {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
