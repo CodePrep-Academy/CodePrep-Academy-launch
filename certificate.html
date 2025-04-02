@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificate Verifier - CPA</title>
+    <title>Certificate Verify - CPA</title>
     <link rel="icon" href="images/favicon.png" type="image/x-icon">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
@@ -93,6 +93,9 @@
             font-weight: bold;
             animation: fadeIn 0.5s ease-in-out;
         }
+        span{
+            font-size: 150%;
+        }
     </style>
 </head>
 <body>
@@ -122,7 +125,7 @@
                 const certificateNumbers = data.split("\n").map(row => row.trim());
 
                 if (certificateNumbers.includes(certNumber)) {
-                    resultDiv.innerHTML = "<p style='color: #00ff99;'>✅ Valid Certificate</p>";
+                    resultDiv.innerHTML = "<p style='color: #00ff99;'>✅ Valid Certificate <br> <span>Certified Learner</span></p>";
                 } else {
                     resultDiv.innerHTML = "<p style='color: #ff4d4d;'>❌ Invalid Certificate</p>";
                 }
