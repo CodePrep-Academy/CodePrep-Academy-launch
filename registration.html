@@ -32,7 +32,7 @@
             padding: 50px;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            animation: float 4s infinite ease-in-out;
+            animation: float 60s infinite ease-in-out;
         }
         @keyframes float {
             0%, 100% { transform: translate(-50%, -50%) translateY(0); }
@@ -87,8 +87,13 @@
                 <option value="Python">Python</option>
                 <option value="Java">Java</option>
             </select>
-            <button type="submit">Register</button>
+            <button type="submit" onclick = "regis()">Register</button>
         </form>
     </div>
+    <script>
+        function regis(){
+            alert("Form submitted successfully");
+        }
+    </script>
 </body>
 </html>
