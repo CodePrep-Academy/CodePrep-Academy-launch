@@ -124,7 +124,7 @@ body {
 
 /* Main Content */
 .container {
-    height: 200vh;
+    height: 400vh;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -195,7 +195,7 @@ h1 {
 /* WhatsApp Chat */
 .whatsapp-container {
     position: fixed;
-    bottom: 20px;
+    bottom: 80px;
     right: 20px;
     animation: bounce 1.5s infinite;
     
@@ -211,7 +211,7 @@ h1 {
     color: white;
     font-size: 1rem;
     font-weight: bold;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
 }
 
 .whatsapp-logo {
@@ -221,7 +221,7 @@ h1 {
 
 .whatsapp-btn:hover {
     background: #1ebe57;
-    transform: scale(1.1);
+    transform: scale(1.3);
 }
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
@@ -378,5 +378,33 @@ h1 {
         font-size: 2rem;
     }
 }
+footer {
 
+    text-align: center;
+    font-size: 18px;
+    color: #ccc;
+}
+.help-bar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #007bff; /* You can change to match your site's theme */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-weight: bold;
+    font-size: 20px;
+    z-index: 1000;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+  }
+  
+  .help-bar a {
+    color: #fff;
+    text-decoration: underline;
+  }
+#phone-icon{
+    height: 30px;
+    width: 30px;
+}
+  
 
