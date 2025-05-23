@@ -1,18 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CodePrep Academy</title>
-  <link rel="icon" href="images/favicon.png" type="image/x-icon">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="images/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Announcement Popup Styles */
+    #announcementOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      animation: fadeInOverlay 0.4s ease forwards;
+    }
+
+    @keyframes fadeInOverlay {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    #announcementPopup {
+      background: #1e1e1e;
+      color: white;
+      border-radius: 16px;
+      max-width: 400px;
+      width: 90%;
+      padding: 25px 30px 25px 30px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+      position: relative;
+      text-align: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      animation: slideDownFadeIn 0.5s ease forwards;
+    }
+
+    @keyframes slideDownFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    #announcementPopup img {
+      width: 70px;
+      height: 70px;
+      margin-bottom: 15px;
+    }
+
+    #announcementPopup h2 {
+      margin: 0 0 10px;
+      font-weight: 700;
+      font-size: 22px;
+      color: #00ffd5;
+    }
+
+    #announcementPopup p {
+      margin: 0 0 15px;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    #announcementPopup a {
+      color: #00ffd5;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    #announcementCloseBtn {
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      font-size: 24px;
+      color: #ccc;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      font-weight: bold;
+      user-select: none;
+    }
+
+    #announcementCloseBtn:hover {
+      color: #00ffd5;
+    }
+  </style>
 </head>
 <body>
 
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo-container">
-      <img src="images/favlearn.png" alt="CodePrep Logo" class="logo">
+      <img src="images/favlearn.png" alt="CodePrep Logo" class="logo" />
       <span class="brand-name">CodePrep Academy</span>
     </div>
     <ul class="nav-links">
@@ -24,7 +111,6 @@
       <!-- <li><a href="#">Reviews</a></li> -->
       <!-- <li><a href="#">Contact</a></li> -->
       <li><a href="certificate.html">Verify Certificate</a></li>
-
     </ul>
     <div class="nav-icon" onclick="togglePopup()">&#9776;</div>
   </nav>
@@ -51,77 +137,101 @@
       <a href="course.html" class="btn explore">Explore Courses</a>
       <a href="registration.html" class="btn login">Register Now</a>
     </div>
-    <br><br>
+    <br /><br />
     <p class="team-text">Our Team</p>
     <h2 class="leaders-heading">The Leaders Behind CodePrep</h2>
     <div class="leaders-container">
       <div class="leader-card">
-        <img src="images/founder.jpeg" alt="Founder">
+        <img src="images/founder.jpeg" alt="Founder" />
         <p class="leader-name">Avinash Jha</p>
-        <p class="leader-description">Founder & CTO, leading innovation at CodePrep.</p>
+        <p class="leader-description">Founder &amp; CTO, leading innovation at CodePrep.</p>
         <div class="social-links">
-          <a href="https://www.linkedin.com/in/avinash04sep/"><img src="images/linkedin.png" alt="LinkedIn"></a>
-          <a href="#"><img src="images/github.png" alt="GitHub"></a>
-          <a href="#"><img src="images/x.png" alt="X"></a>
+          <a href="https://www.linkedin.com/in/avinash04sep/"><img src="images/linkedin.png" alt="LinkedIn" /></a>
+          <a href="#"><img src="images/github.png" alt="GitHub" /></a>
+          <a href="#"><img src="images/x.png" alt="X" /></a>
         </div>
       </div>
       <div class="leader-card">
-        <img src="images/neha.png" alt="Co-founder">
+        <img src="images/neha.png" alt="Co-founder" />
         <p class="leader-name">Neha K</p>
-        <p class="leader-description">Co-founder & COO - CodePrep Academy</p>
+        <p class="leader-description">Co-founder &amp; COO - CodePrep Academy</p>
         <div class="social-links">
-          <a href="https://www.linkedin.com/in/neha-k-b5584029b/"><img src="images/linkedin.png" alt="LinkedIn"></a>
-          <a href="#"><img src="images/github.png" alt="GitHub"></a>
-          <a href="#"><img src="images/x.png" alt="X"></a>
+          <a href="https://www.linkedin.com/in/neha-k-b5584029b/"><img src="images/linkedin.png" alt="LinkedIn" /></a>
+          <a href="#"><img src="images/github.png" alt="GitHub" /></a>
+          <a href="#"><img src="images/x.png" alt="X" /></a>
         </div>
       </div>
       <div class="leader-card">
-        <img src="images/ashish.png" alt="Leader 2">
+        <img src="images/ashish.png" alt="Leader 2" />
         <p class="leader-name">Ashish Shivhare</p>
-        <p class="leader-description">Founding SDE 1 & Instructor - DSA </p>
+        <p class="leader-description">Founding SDE 1 &amp; Instructor - DSA </p>
         <div class="social-links">
-          <a href="https://in.linkedin.com/in/ashish-shivhare"><img src="images/linkedin.png" alt="LinkedIn"></a>
-          <a href="#"><img src="images/github.png" alt="GitHub"></a>
-          <a href="#"><img src="images/x.png" alt="X"></a>
+          <a href="https://in.linkedin.com/in/ashish-shivhare"><img src="images/linkedin.png" alt="LinkedIn" /></a>
+          <a href="#"><img src="images/github.png" alt="GitHub" /></a>
+          <a href="#"><img src="images/x.png" alt="X" /></a>
         </div>
       </div>
       <div class="leader-card">
-        <img src="images/shivansh.jpeg" alt="Leader 3">
+        <img src="images/shivansh.jpeg" alt="Leader 3" />
         <p class="leader-name">Shivansh Mehta</p>
         <p class="leader-description">Instructor - MERN Stack</p>
         <div class="social-links">
-          <a href="https://in.linkedin.com/in/shivanshmehtaa"><img src="images/linkedin.png" alt="LinkedIn"></a>
-          <a href="#"><img src="images/github.png" alt="GitHub"></a>
-          <a href="#"><img src="images/x.png" alt="X"></a>
+          <a href="https://in.linkedin.com/in/shivanshmehtaa"><img src="images/linkedin.png" alt="LinkedIn" /></a>
+          <a href="#"><img src="images/github.png" alt="GitHub" /></a>
+          <a href="#"><img src="images/x.png" alt="X" /></a>
         </div>
       </div>
     </div>
   </div>
 
-    <!-- WhatsApp Chat Button -->
-    <div class="whatsapp-container">
-      <a href="https://wa.me/7488394698" target="_blank" class="whatsapp-btn">
-        <img src="images/logowhatsapp.png" alt="WhatsApp Logo" class="whatsapp-logo">
-        <span class="whatsapp-text">Chat with us</span>
-      </a>
-    </div>
+  <!-- WhatsApp Chat Button -->
+  <div class="whatsapp-container">
+    <a href="https://wa.me/7488394698" target="_blank" class="whatsapp-btn">
+      <img src="images/logowhatsapp.png" alt="WhatsApp Logo" class="whatsapp-logo" />
+      <span class="whatsapp-text">Chat with us</span>
+    </a>
+  </div>
 
-    <div class="help-bar">
-      Need Help? Call Us Now: <a href="tel:+917488394698">+91-7488394698</a>
-    </div>
-    
-    
+  <div class="help-bar">
+    Need Help? Call Us Now: <a href="tel:+917488394698">+91-7488394698</a>
+  </div>
 
-    <footer>
-      <p>&copy; CodePrep Academy 2025 | All Rights Reserved</p>
-    </footer>
-    
+  <footer>
+    <p>&copy; CodePrep Academy 2025 | All Rights Reserved</p>
+  </footer>
+
+  <!-- Announcement Popup -->
+  <div id="announcementOverlay">
+    <div id="announcementPopup" role="alert" aria-live="assertive" aria-atomic="true">
+      <div id="announcementCloseBtn" aria-label="Close announcement" role="button" tabindex="0">&times;</div>
+      <img src="https://cdn-icons-png.flaticon.com/512/254/254769.png" alt="Announcement Icon" />
+      <h2>🚀 New Compiler is Live!</h2>
+      <p>Use our power-packed compiler with fast execution & beginner-friendly UI.</p>
+      <p><a href="compiler.html" target="_blank" rel="noopener noreferrer">Try it now on CodePrep.in</a></p>
+    </div>
+  </div>
 
   <script>
     function togglePopup() {
       const popup = document.getElementById("popup");
       popup.classList.toggle("active");
     }
+
+    // Announcement close button functionality
+    const closeBtn = document.getElementById("announcementCloseBtn");
+    const announcementOverlay = document.getElementById("announcementOverlay");
+
+    closeBtn.addEventListener("click", () => {
+      announcementOverlay.style.display = "none";
+    });
+
+    // Allow keyboard closing for accessibility
+    closeBtn.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+        announcementOverlay.style.display = "none";
+        e.preventDefault();
+      }
+    });
   </script>
 </body>
 </html>
