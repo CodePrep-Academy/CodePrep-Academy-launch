@@ -2,24 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CodePrep Academy</title>
   <link rel="icon" href="images/favicon.png" type="image/x-icon" />
   <link rel="stylesheet" href="styles.css" />
   <style>
-    /* === Announcement Popup Styles === */
+    /* Announcement Popup Styles */
     #announcementOverlay {
       position: fixed;
       top: 0; left: 0;
       width: 100vw; height: 100vh;
       background: rgba(0, 0, 0, 0.5);
-      display: flex; align-items: center; justify-content: center;
+      display: none; /* hidden by default */
+      align-items: center;
+      justify-content: center;
       z-index: 10000;
-      animation: fadeInOverlay 0.4s ease forwards;
-    }
-    @keyframes fadeInOverlay {
-      from {opacity: 0;}
-      to {opacity: 1;}
+      animation-fill-mode: forwards;
     }
     #announcementPopup {
       background: #1e1e1e;
@@ -32,11 +30,7 @@
       position: relative;
       text-align: center;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      animation: slideDownFadeIn 0.5s ease forwards;
-    }
-    @keyframes slideDownFadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+      animation-fill-mode: forwards;
     }
     #announcementPopup img {
       width: 70px;
@@ -68,7 +62,25 @@
       color: #00ffd5;
     }
 
-    /* === Discount Toast === */
+    /* Animations */
+    @keyframes fadeInOverlay {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    @keyframes slideDownFadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeOutOverlay {
+      from {opacity: 1;}
+      to {opacity: 0;}
+    }
+    @keyframes slideUpFadeOut {
+      from { opacity: 1; transform: translateY(0); }
+      to { opacity: 0; transform: translateY(-20px); }
+    }
+
+    /* Discount Toast */
     #discountToast {
       position: fixed;
       bottom: 20px;
@@ -79,7 +91,7 @@
       padding: 12px 20px;
       border-radius: 30px;
       box-shadow: 0 4px 12px rgba(0,255,213,0.5);
-      display: flex;
+      display: none; /* hidden by default */
       align-items: center;
       gap: 15px;
       font-weight: 600;
@@ -92,6 +104,7 @@
       transition: opacity 0.4s ease;
     }
     #discountToast.show {
+      display: flex;
       opacity: 1;
       pointer-events: auto;
     }
@@ -119,7 +132,6 @@
     }
   </style>
 </head>
-
 <body>
 
   <!-- Navbar -->
@@ -131,14 +143,17 @@
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="free resources.html">Free Resources</a></li>
+      <!-- <li><a href="#">About</a></li> -->
       <li><a href="#">Why Us</a></li>
       <li><a href="#">FAQs</a></li>
+      <!-- <li><a href="#">Reviews</a></li> -->
+      <!-- <li><a href="#">Contact</a></li> -->
       <li><a href="certificate.html">Verify Certificate</a></li>
     </ul>
     <div class="nav-icon" onclick="togglePopup()">&#9776;</div>
   </nav>
 
-  <!-- Mobile Menu -->
+  <!-- Popup Navigation Menu for Small Screens -->
   <div class="popup" id="popup">
     <span class="close-btn" onclick="togglePopup()">&times;</span>
     <ul>
@@ -153,16 +168,14 @@
     </ul>
   </div>
 
-  <!-- Hero Section -->
+  <!-- Main Content -->
   <div class="container">
     <h1 class="type">Join CodePrep Academy today!</h1>
     <div class="buttons">
       <a href="course.html" class="btn explore">Explore Courses</a>
       <a href="registration.html" class="btn login">Register Now</a>
     </div>
-
-    <!-- Team Section -->
-    <br><br>
+    <br /><br />
     <p class="team-text">Our Team</p>
     <h2 class="leaders-heading">The Leaders Behind CodePrep</h2>
     <div class="leaders-container">
@@ -172,33 +185,38 @@
         <p class="leader-description">Founder & CTO, leading innovation at CodePrep.</p>
         <div class="social-links">
           <a href="https://www.linkedin.com/in/avinash04sep/"><img src="images/linkedin.png" alt="LinkedIn" /></a>
+          <a href="#"><img src="images/github.png" alt="GitHub" /></a>
+          <a href="#"><img src="images/x.png" alt="X" /></a>
         </div>
       </div>
-
       <div class="leader-card">
-        <img src="images/neha.png" alt="Neha" />
+        <img src="images/neha.png" alt="Co-founder" />
         <p class="leader-name">Neha K</p>
         <p class="leader-description">Co-founder & COO - CodePrep Academy</p>
         <div class="social-links">
           <a href="https://www.linkedin.com/in/neha-k-b5584029b/"><img src="images/linkedin.png" alt="LinkedIn" /></a>
+          <a href="#"><img src="images/github.png" alt="GitHub" /></a>
+          <a href="#"><img src="images/x.png" alt="X" /></a>
         </div>
       </div>
-
       <div class="leader-card">
-        <img src="images/sumukha.png" alt="Sumukha" />
-        <p class="leader-name">Sumukha</p>
-        <p class="leader-description">SDE Intern at Microsoft, ex-Juspay</p>
+        <img src="images/ashish.png" alt="Leader 2" />
+        <p class="leader-name">Ashish Shivhare</p>
+        <p class="leader-description">Founding SDE 1 & Instructor - DSA </p>
         <div class="social-links">
-          <a href="https://www.linkedin.com/in/sumukha-h-s-240b90214/"><img src="images/linkedin.png" alt="LinkedIn" /></a>
+          <a href="https://in.linkedin.com/in/ashish-shivhare"><img src="images/linkedin.png" alt="LinkedIn" /></a>
+          <a href="#"><img src="images/github.png" alt="GitHub" /></a>
+          <a href="#"><img src="images/x.png" alt="X" /></a>
         </div>
       </div>
-
       <div class="leader-card">
-        <img src="images/vivek.jpeg" alt="Vivek" />
-        <p class="leader-name">Vivek S</p>
-        <p class="leader-description">Co-founder & Head of Content</p>
+        <img src="images/shivansh.jpeg" alt="Leader 3" />
+        <p class="leader-name">Shivansh Mehta</p>
+        <p class="leader-description">Instructor - MERN Stack</p>
         <div class="social-links">
-          <a href="https://www.linkedin.com/in/viveksingh0409/"><img src="images/linkedin.png" alt="LinkedIn" /></a>
+          <a href="https://in.linkedin.com/in/shivanshmehtaa"><img src="images/linkedin.png" alt="LinkedIn" /></a>
+          <a href="#"><img src="images/github.png" alt="GitHub" /></a>
+          <a href="#"><img src="images/x.png" alt="X" /></a>
         </div>
       </div>
     </div>
@@ -221,69 +239,73 @@
   </footer>
 
   <!-- Announcement Popup -->
-  <div id="announcementOverlay" style="display: none;">
+  <div id="announcementOverlay">
     <div id="announcementPopup">
       <span id="announcementCloseBtn">&times;</span>
-      <img src="images/favlearn.png" alt="Logo" />
-      <h2>🎉 Big News, CodePreppers!</h2>
-      <p>We’ve officially launched our brand-new CodePrep Compiler — a powerful, seamless coding environment built exclusively for our students.</p>
-      <br><br>
-      <a href="compiler.html"><strong> 🛠️ Practice Now </strong></a>
+      <img src="images/favlearn.png" alt="CodePrep Logo" />
+      <h2>🚀 New Compiler Feature Live!</h2> <br>
+      <p>
+        We just released our brand-new online compiler with instant code execution and
+        multiple language support. Try it now and boost your coding practice!
+      </p> <br>
+      <p>Check it out on our <a href="compiler.html">Compiler Page</a> today.</p>
+      
     </div>
   </div>
 
   <!-- Discount Toast -->
-  <div id="discountToast" style="display: none;">
-    Early bird discount of 20% live! Use coupon code
-    <span class="coupon-code" id="couponCode" title="Click to copy">JUNE20</span>
-    <button id="discountCloseBtn">&times;</button>
+  <div id="discountToast">
+    🥳 Use coupon <span class="coupon-code" id="couponCode">CODE28</span>
+    <button id="discountCloseBtn" aria-label="Close discount notification">&times;</button>
   </div>
 
-  <!-- Script -->
   <script>
-    const popup = document.getElementById('popup');
+    // Toggle mobile popup menu
     function togglePopup() {
-      popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+      const popup = document.getElementById("popup");
+      popup.classList.toggle("active");
     }
 
-    // Announcement popup logic
-    const announcementOverlay = document.getElementById('announcementOverlay');
-    const announcementCloseBtn = document.getElementById('announcementCloseBtn');
-    setTimeout(() => {
-      announcementOverlay.style.display = 'flex';
-    }, 2000);
-    announcementCloseBtn.onclick = () => {
-      announcementOverlay.style.display = 'none';
-    };
+    // Announcement popup logic: Show every page load (no sessionStorage)
+    const announcementOverlay = document.getElementById("announcementOverlay");
+    const announcementCloseBtn = document.getElementById("announcementCloseBtn");
 
-    // Toast logic
-    const discountToast = document.getElementById('discountToast');
-    const discountCloseBtn = document.getElementById('discountCloseBtn');
-    let toastVisible = false;
-    function showToast() {
-      if (!toastVisible) {
-        discountToast.style.display = 'flex';
-        void discountToast.offsetWidth;
-        discountToast.classList.add('show');
-        toastVisible = true;
-      }
-    }
-    function hideToast() {
-      discountToast.classList.remove('show');
-      toastVisible = false;
+    window.addEventListener("load", () => {
+      announcementOverlay.style.display = "flex";
+      announcementOverlay.style.animation = "fadeInOverlay 0.4s ease forwards";
+      document.getElementById("announcementPopup").style.animation = "slideDownFadeIn 0.4s ease forwards";
+    });
+
+    announcementCloseBtn.addEventListener("click", () => {
+      announcementOverlay.style.animation = "fadeOutOverlay 0.4s ease forwards";
+      document.getElementById("announcementPopup").style.animation = "slideUpFadeOut 0.4s ease forwards";
       setTimeout(() => {
-        if (!toastVisible) discountToast.style.display = 'none';
+        announcementOverlay.style.display = "none";
       }, 400);
-    }
-    discountCloseBtn.onclick = () => hideToast();
-    setInterval(() => { if (!toastVisible) showToast(); }, 4000);
-    setTimeout(() => showToast(), 4000);
+    });
 
-    // Copy to clipboard
-    document.getElementById("couponCode").onclick = function () {
-      navigator.clipboard.writeText("JUNE20");
-      alert("Coupon code copied to clipboard! 🥳");
-    };
+    // Discount Toast Logic
+    const discountToast = document.getElementById("discountToast");
+    const discountCloseBtn = document.getElementById("discountCloseBtn");
+    const couponCode = document.getElementById("couponCode");
+
+    // Show discount toast after 2 seconds
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        discountToast.classList.add("show");
+      }, 2000);
+    });
+
+    discountCloseBtn.addEventListener("click", () => {
+      discountToast.classList.remove("show");
+    });
+
+    // Optional: copy coupon code on click
+    couponCode.addEventListener("click", () => {
+      navigator.clipboard.writeText(couponCode.textContent).then(() => {
+        alert("Coupon code copied: " + couponCode.textContent);
+      });
+    });
   </script>
 </body>
 </html>
