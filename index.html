@@ -7,76 +7,54 @@
   <link rel="icon" href="images/favicon.png" type="image/x-icon" />
   <link rel="stylesheet" href="styles.css" />
   <style>
-    /* Announcement Popup Styles */
+    /* === Announcement Popup Styles === */
     #announcementOverlay {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
       background: rgba(0, 0, 0, 0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       z-index: 10000;
       animation: fadeInOverlay 0.4s ease forwards;
     }
-
     @keyframes fadeInOverlay {
       from {opacity: 0;}
       to {opacity: 1;}
     }
-
     #announcementPopup {
       background: #1e1e1e;
       color: white;
       border-radius: 16px;
       max-width: 400px;
       width: 90%;
-      padding: 25px 30px 25px 30px;
+      padding: 25px 30px;
       box-shadow: 0 8px 30px rgba(0,0,0,0.7);
       position: relative;
       text-align: center;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       animation: slideDownFadeIn 0.5s ease forwards;
     }
-
     @keyframes slideDownFadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-
     #announcementPopup img {
       width: 70px;
       height: 70px;
       margin-bottom: 15px;
     }
-
     #announcementPopup h2 {
-      margin: 0 0 10px;
-      font-weight: 700;
       font-size: 22px;
       color: #00ffd5;
     }
-
     #announcementPopup p {
-      margin: 0 0 15px;
       font-size: 16px;
-      line-height: 1.4;
     }
-
     #announcementPopup a {
       color: #00ffd5;
       text-decoration: underline;
       font-weight: 600;
     }
-
     #announcementCloseBtn {
       position: absolute;
       top: 12px;
@@ -84,16 +62,64 @@
       font-size: 24px;
       color: #ccc;
       cursor: pointer;
-      transition: color 0.3s ease;
       font-weight: bold;
-      user-select: none;
     }
-
     #announcementCloseBtn:hover {
       color: #00ffd5;
     }
+
+    /* === Discount Toast === */
+    #discountToast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #00ffd5;
+      color: #000;
+      padding: 12px 20px;
+      border-radius: 30px;
+      box-shadow: 0 4px 12px rgba(0,255,213,0.5);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-weight: 600;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 15px;
+      max-width: 360px;
+      z-index: 10001;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    #discountToast.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .coupon-code {
+      background: #000;
+      color: #00ffd5;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 14px;
+      user-select: text;
+      cursor: pointer;
+    }
+    #discountCloseBtn {
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 20px;
+      color: #000;
+      background: transparent;
+      border: none;
+      line-height: 1;
+    }
+    #discountCloseBtn:hover {
+      color: #007a7a;
+    }
   </style>
 </head>
+
 <body>
 
   <!-- Navbar -->
@@ -105,17 +131,14 @@
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="free resources.html">Free Resources</a></li>
-      <!-- <li><a href="#">About</a></li> -->
       <li><a href="#">Why Us</a></li>
       <li><a href="#">FAQs</a></li>
-      <!-- <li><a href="#">Reviews</a></li> -->
-      <!-- <li><a href="#">Contact</a></li> -->
       <li><a href="certificate.html">Verify Certificate</a></li>
     </ul>
     <div class="nav-icon" onclick="togglePopup()">&#9776;</div>
   </nav>
 
-  <!-- Popup Navigation Menu for Small Screens -->
+  <!-- Mobile Menu -->
   <div class="popup" id="popup">
     <span class="close-btn" onclick="togglePopup()">&times;</span>
     <ul>
@@ -130,55 +153,52 @@
     </ul>
   </div>
 
-  <!-- Main Content -->
+  <!-- Hero Section -->
   <div class="container">
     <h1 class="type">Join CodePrep Academy today!</h1>
     <div class="buttons">
       <a href="course.html" class="btn explore">Explore Courses</a>
       <a href="registration.html" class="btn login">Register Now</a>
     </div>
-    <br /><br />
+
+    <!-- Team Section -->
+    <br><br>
     <p class="team-text">Our Team</p>
     <h2 class="leaders-heading">The Leaders Behind CodePrep</h2>
     <div class="leaders-container">
       <div class="leader-card">
         <img src="images/founder.jpeg" alt="Founder" />
         <p class="leader-name">Avinash Jha</p>
-        <p class="leader-description">Founder &amp; CTO, leading innovation at CodePrep.</p>
+        <p class="leader-description">Founder & CTO, leading innovation at CodePrep.</p>
         <div class="social-links">
           <a href="https://www.linkedin.com/in/avinash04sep/"><img src="images/linkedin.png" alt="LinkedIn" /></a>
-          <a href="#"><img src="images/github.png" alt="GitHub" /></a>
-          <a href="#"><img src="images/x.png" alt="X" /></a>
         </div>
       </div>
+
       <div class="leader-card">
-        <img src="images/neha.png" alt="Co-founder" />
+        <img src="images/neha.png" alt="Neha" />
         <p class="leader-name">Neha K</p>
-        <p class="leader-description">Co-founder &amp; COO - CodePrep Academy</p>
+        <p class="leader-description">Co-founder & COO - CodePrep Academy</p>
         <div class="social-links">
           <a href="https://www.linkedin.com/in/neha-k-b5584029b/"><img src="images/linkedin.png" alt="LinkedIn" /></a>
-          <a href="#"><img src="images/github.png" alt="GitHub" /></a>
-          <a href="#"><img src="images/x.png" alt="X" /></a>
         </div>
       </div>
+
       <div class="leader-card">
-        <img src="images/ashish.png" alt="Leader 2" />
-        <p class="leader-name">Ashish Shivhare</p>
-        <p class="leader-description">Founding SDE 1 &amp; Instructor - DSA </p>
+        <img src="images/sumukha.png" alt="Sumukha" />
+        <p class="leader-name">Sumukha</p>
+        <p class="leader-description">SDE Intern at Microsoft, ex-Juspay</p>
         <div class="social-links">
-          <a href="https://in.linkedin.com/in/ashish-shivhare"><img src="images/linkedin.png" alt="LinkedIn" /></a>
-          <a href="#"><img src="images/github.png" alt="GitHub" /></a>
-          <a href="#"><img src="images/x.png" alt="X" /></a>
+          <a href="https://www.linkedin.com/in/sumukha-h-s-240b90214/"><img src="images/linkedin.png" alt="LinkedIn" /></a>
         </div>
       </div>
+
       <div class="leader-card">
-        <img src="images/shivansh.jpeg" alt="Leader 3" />
-        <p class="leader-name">Shivansh Mehta</p>
-        <p class="leader-description">Instructor - MERN Stack</p>
+        <img src="images/vivek.jpeg" alt="Vivek" />
+        <p class="leader-name">Vivek S</p>
+        <p class="leader-description">Co-founder & Head of Content</p>
         <div class="social-links">
-          <a href="https://in.linkedin.com/in/shivanshmehtaa"><img src="images/linkedin.png" alt="LinkedIn" /></a>
-          <a href="#"><img src="images/github.png" alt="GitHub" /></a>
-          <a href="#"><img src="images/x.png" alt="X" /></a>
+          <a href="https://www.linkedin.com/in/viveksingh0409/"><img src="images/linkedin.png" alt="LinkedIn" /></a>
         </div>
       </div>
     </div>
@@ -201,37 +221,69 @@
   </footer>
 
   <!-- Announcement Popup -->
-  <div id="announcementOverlay">
-    <div id="announcementPopup" role="alert" aria-live="assertive" aria-atomic="true">
-      <div id="announcementCloseBtn" aria-label="Close announcement" role="button" tabindex="0">&times;</div>
-      <img src="https://cdn-icons-png.flaticon.com/512/254/254769.png" alt="Announcement Icon" />
-      <h2>🚀 New Compiler is Live!</h2>
-      <p>Use our power-packed compiler with fast execution & beginner-friendly UI.</p>
-      <p><a href="compiler.html" target="_blank" rel="noopener noreferrer">Try it now on CodePrep.in</a></p>
+  <div id="announcementOverlay" style="display: none;">
+    <div id="announcementPopup">
+      <span id="announcementCloseBtn">&times;</span>
+      <img src="images/favlearn.png" alt="Logo" />
+      <h2>🎉 Big News, CodePreppers!</h2>
+      <p>We’ve officially launched our brand-new CodePrep Compiler — a powerful, seamless coding environment built exclusively for our students.</p>
+      <br><br>
+      <a href="compiler.html"><strong> 🛠️ Practice Now </strong></a>
     </div>
   </div>
 
+  <!-- Discount Toast -->
+  <div id="discountToast" style="display: none;">
+    Early bird discount of 20% live! Use coupon code
+    <span class="coupon-code" id="couponCode" title="Click to copy">JUNE20</span>
+    <button id="discountCloseBtn">&times;</button>
+  </div>
+
+  <!-- Script -->
   <script>
+    const popup = document.getElementById('popup');
     function togglePopup() {
-      const popup = document.getElementById("popup");
-      popup.classList.toggle("active");
+      popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
     }
 
-    // Announcement close button functionality
-    const closeBtn = document.getElementById("announcementCloseBtn");
-    const announcementOverlay = document.getElementById("announcementOverlay");
+    // Announcement popup logic
+    const announcementOverlay = document.getElementById('announcementOverlay');
+    const announcementCloseBtn = document.getElementById('announcementCloseBtn');
+    setTimeout(() => {
+      announcementOverlay.style.display = 'flex';
+    }, 2000);
+    announcementCloseBtn.onclick = () => {
+      announcementOverlay.style.display = 'none';
+    };
 
-    closeBtn.addEventListener("click", () => {
-      announcementOverlay.style.display = "none";
-    });
-
-    // Allow keyboard closing for accessibility
-    closeBtn.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
-        announcementOverlay.style.display = "none";
-        e.preventDefault();
+    // Toast logic
+    const discountToast = document.getElementById('discountToast');
+    const discountCloseBtn = document.getElementById('discountCloseBtn');
+    let toastVisible = false;
+    function showToast() {
+      if (!toastVisible) {
+        discountToast.style.display = 'flex';
+        void discountToast.offsetWidth;
+        discountToast.classList.add('show');
+        toastVisible = true;
       }
-    });
+    }
+    function hideToast() {
+      discountToast.classList.remove('show');
+      toastVisible = false;
+      setTimeout(() => {
+        if (!toastVisible) discountToast.style.display = 'none';
+      }, 400);
+    }
+    discountCloseBtn.onclick = () => hideToast();
+    setInterval(() => { if (!toastVisible) showToast(); }, 4000);
+    setTimeout(() => showToast(), 4000);
+
+    // Copy to clipboard
+    document.getElementById("couponCode").onclick = function () {
+      navigator.clipboard.writeText("JUNE20");
+      alert("Coupon code copied to clipboard! 🥳");
+    };
   </script>
 </body>
 </html>
